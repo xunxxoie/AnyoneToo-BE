@@ -31,6 +31,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
+          cd AnyoneToo
           chmod +x ./AnyoneToo/gradlew
           ./AnyoneToo/gradlew clean build -x test
           
