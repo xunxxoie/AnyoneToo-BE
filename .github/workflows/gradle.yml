@@ -42,10 +42,14 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/server:latest .
+        run: | 
+          cd AnyoneToo
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/server:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/server:latest
+        run: | 
+          cd AnyoneToo
+          docker push ${{ secrets.DOCKER_USERNAME }}/server:latest
 
   deploy:
     name: Deploy
